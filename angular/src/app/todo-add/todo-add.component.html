@@ -1,0 +1,42 @@
+<section>
+    <div class="col heading-text mt-3 mb-3">
+        <h3>What do you want to do today?</h3>
+    </div>
+    <form  (ngSubmit)="onSubmit()" #todoForm="ngForm" *ngIf="!editFrm">
+        <div class="form-row align-items-center d-flex justify-content-center">
+            <div class="col">
+                <div class="input-group mb-2">
+                    <input type="text" name="todo_title" 
+                    [(ngModel)]="todo.title" 
+                    #todo_title="ngModel"
+                    id="todo_title" class="form-control" id="inlineFormInputGroup" required>
+                    <div class="input-group-prepend">
+                        <button type="submit" [disabled]="!todoForm.form.valid" class="input-group-text" (click)="add(); todoForm.reset()"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div [hidden]="todo_title.valid || todo_title.pristine" class="alert alert-danger">
+                title is required
+            </div>
+        </div>
+    </form>
+    <form  (ngSubmit)="onSubmit()" #editTodoForm="ngForm" *ngIf="editFrm">
+        <div class="form-row align-items-center d-flex justify-content-center">
+            <div class="col">
+                <div class="input-group mb-2">
+                    <input type="text" name="edit_todo_title" 
+                    [(ngModel)]="editTodo.title" 
+                    #edit_todo_title="ngModel"
+                    id="edit_todo_title" class="form-control" id="inlineFormInputGroup" required>
+                    <input type="hidden" [(ngModel)]="editTodo.id" name="edit_todo_id">
+                    <div class="input-group-prepend">
+                        <button type="submit" [disabled]="!editTodoForm.form.valid" class="input-group-text" (click)="edit(); editTodoForm.reset()"><i class="far fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div [hidden]="edit_todo_title.valid || edit_todo_title.pristine" class="alert alert-danger">
+                title is required
+            </div>
+        </div>
+    </form>
+</section>

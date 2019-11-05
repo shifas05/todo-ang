@@ -1,0 +1,7 @@
+<section>
+    <ul class="list-group list-group-flush" *ngIf="todoData">
+        <li class="list-group-item d-flex justify-content-between" *ngFor="let item of todoData"> <span>{{item.title}}</span>
+        <a href="javascript:;" class="color-blk" (click)="edit(item)"><i class="fas fa-edit font-weight-bold"></i></a>    
+        </li>
+    </ul>
+</section>
