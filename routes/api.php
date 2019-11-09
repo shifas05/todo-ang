@@ -21,5 +21,6 @@ Route::namespace('Api')->group(function () {
     Route::post("add_todo", "TodoController@addTodo");
     Route::get("get_todo", "TodoController@getTodo");
     Route::post("edit_todo", "TodoController@editTodo");
+    Route::post("delete_todo", "TodoController@deleteTodo");
 });
 

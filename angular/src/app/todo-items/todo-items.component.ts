@@ -14,6 +14,7 @@ interface IEvent{
 export class TodoItemsComponent implements OnInit {
   @Input() event: Event;
   @Output() eventClicked = new EventEmitter<Event>();
+
   todoData :any = [];
   editTodoData:any = {};
   events:IEvent[]=[]
@@ -43,10 +44,24 @@ export class TodoItemsComponent implements OnInit {
     this.getTodo();
     // this.editTodoData = event;
   }
+ 
 
   edit(item) {
-    this.events = item;
+    // this.events = item;
+    item.type = "edit";
     // console.log(this.events)
     this.eventClicked.emit(item);
+  }
+  delete(item) {
+    // console.log(item);
+    item.type = "delete";
+    // this.events = item;
+  
+    this.todoService.deleteTodo(item).subscribe(
+      data => { 
+        this.todoData = this.todoData.filter(h => h !== item);
+      }
+    )
+
   }
 }

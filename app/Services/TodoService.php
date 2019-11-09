@@ -18,4 +18,17 @@ class TodoService {
         $todo->save();
         return $todo;
     }
+    public function deleteTodo($data){
+        // dd($data);
+        $todo = Todo::find($data['id']);
+
+        $dlt = $todo->delete();
+        if($dlt) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'successfully deleted!',
+                'data' => $dlt
+            ]);
+        }
+    }
 }

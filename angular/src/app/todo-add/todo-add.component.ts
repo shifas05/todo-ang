@@ -44,10 +44,17 @@ export class TodoAddComponent implements OnInit {
     );
   }
   childEventClicked_(event){
-   if(event){
-     this.editFrm = true;
-     this.editTodo = event;
+   if(event.type === "edit"){
+      console.log(event)
+      this.editFrm = true;
+      this.editTodo = event;
    }
+   if(event.type === "delete"){
+      console.log(event);
+      this.editTodo = event;
+      // this.editFrm = true;
+      // this.editTodo = event;
+    }
   }
   edit() {
     this.editFrm = false;

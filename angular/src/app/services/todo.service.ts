@@ -26,4 +26,7 @@ export class TodoService {
     // console.log(`${this.apiURL}post_test`);
     return this.http.post(`${this.apiURL}edit_todo`,data,httpOptions);
   }
+  deleteTodo(data):Observable<any> {
+    return this.http.post(`${this.apiURL}delete_todo`,data,httpOptions);
+  }
 }

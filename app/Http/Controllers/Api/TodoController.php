@@ -22,4 +22,7 @@ class TodoController extends Controller
         // dd($request->all());
         return $this->todoService->editTodo($request->all());
     }
+    public function deleteTodo(Request $request){
+        return $this->todoService->deleteTodo($request->all());
+    }
 }
