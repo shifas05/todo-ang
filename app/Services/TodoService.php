@@ -9,7 +9,7 @@ class TodoService {
         return Todo::create($data);
     }
     public function getTodo() {
-        return Todo::all();
+        return Todo::orderBy('created_at', 'desc')->get();
     }
     public function editTodo($data){
         $todo = Todo::find($data['id']);
