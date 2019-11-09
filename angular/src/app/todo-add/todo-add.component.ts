@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 import { TodoService }  from '../services/todo.service';
 interface IEvent{
   id:number;
@@ -23,7 +25,7 @@ export class TodoAddComponent implements OnInit {
   // todo = [{
   //   title : ''
   // }];
-  constructor(private todoService:TodoService) { }
+  constructor(private todoService:TodoService, private toastr: ToastrService) { }
   events:IEvent[]=[]
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class TodoAddComponent implements OnInit {
       data => {
         this.events = data;
         this.eventClicked.emit(data);
+        this.showSuccess("successfully added!");
       },
       err => {
         console.error('Oops:', err.message);
@@ -63,11 +66,18 @@ export class TodoAddComponent implements OnInit {
         console.log(data)
         this.events = data;
         this.eventClickedEdit.emit(data); 
+        this.showSuccess("successfully edited!");
       },
       err => {
         console.error('Oops:', err.message);
       }
     );
+  }
+  showSuccess(data) {
+    this.toastr.success(data, 'Success', {
+      positionClass : 'toast-bottom-center',
+      timeOut: 1500
+    });
   }
   // eventCalled(){
   //   event: Event;

@@ -17,7 +17,8 @@ export class TodoItemsComponent implements OnInit {
 
   todoData :any = [];
   editTodoData:any = {};
-  events:IEvent[]=[]
+  events:IEvent[]=[];
+  p: number = 1;
   
   constructor(private todoService :TodoService) { }
 

@@ -1,6 +1,6 @@
 <section>
     <ul class="list-group list-group-flush" *ngIf="todoData">
-        <li class="list-group-item d-flex justify-content-between" *ngFor="let item of todoData"> 
+        <li class="list-group-item d-flex justify-content-between" *ngFor="let item of todoData | paginate: { itemsPerPage: 5, currentPage: p }"> 
         <span>{{item.title}}</span>
         <span>
             <a href="javascript:;" class="color-blk but_pad" (click)="edit(item)"><i class="fas fa-edit font-weight-bold"></i></a> 
@@ -14,4 +14,5 @@
         </span>
         </li>
     </ul>
+    <pagination-controls class="d-flex justify-content-end" (pageChange)="p = $event"></pagination-controls>
 </section>
