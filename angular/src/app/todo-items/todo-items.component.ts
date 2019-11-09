@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 import { TodoService }  from '../services/todo.service';
 interface IEvent{
   title:string;
@@ -20,7 +22,7 @@ export class TodoItemsComponent implements OnInit {
   events:IEvent[]=[];
   p: number = 1;
   
-  constructor(private todoService :TodoService) { }
+  constructor(private todoService :TodoService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getTodo();
@@ -61,8 +63,16 @@ export class TodoItemsComponent implements OnInit {
     this.todoService.deleteTodo(item).subscribe(
       data => { 
         this.todoData = this.todoData.filter(h => h !== item);
+        this.showSuccess("successfully deleted!");
       }
     )
 
+  }
+
+  showSuccess(data) {
+    this.toastr.success(data, 'Success', {
+      positionClass : 'toast-bottom-center',
+      timeOut: 1500
+    });
   }
 }
