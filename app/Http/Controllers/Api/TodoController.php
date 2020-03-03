@@ -25,4 +25,7 @@ class TodoController extends Controller
     public function deleteTodo(Request $request){
         return $this->todoService->deleteTodo($request->all());
     }
+    public function setLimit(Request $request){
+        return $this->todoService->setLimit($request->all());
+    }
 }

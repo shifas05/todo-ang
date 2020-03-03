@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 import { TodoService }  from '../services/todo.service';
 interface IEvent{
@@ -22,7 +22,7 @@ export class TodoItemsComponent implements OnInit {
   events:IEvent[]=[];
   p: number = 1;
   
-  constructor(private todoService :TodoService, private toastr: ToastrService) { }
+  constructor(private todoService :TodoService) { }
 
   ngOnInit() {
     this.getTodo();
@@ -70,9 +70,9 @@ export class TodoItemsComponent implements OnInit {
   }
 
   showSuccess(data) {
-    this.toastr.success(data, 'Success', {
-      positionClass : 'toast-bottom-center',
-      timeOut: 1500
-    });
+    // this.toastr.success(data, 'Success', {
+    //   positionClass : 'toast-bottom-center',
+    //   timeOut: 1500
+    // });
   }
 }
