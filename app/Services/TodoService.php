@@ -31,4 +31,7 @@ class TodoService {
             ]);
         }
     }
+    public function setLimit($data) {
+        return Todo::orderBy('created_at', 'desc')->limit($data['limit'])->get();
+    }
 }
