@@ -14,7 +14,7 @@ export class TodoAppComponent implements OnInit {
 
   childEventClicked(event: Event) {
     this.clickedEvent = event;
-    console.log(this.clickedEvent);
+    // console.log(this.clickedEvent);
   }
 
 }

@@ -16,7 +16,7 @@ interface IEvent{
 export class TodoAddComponent implements OnInit {
   submitted = false;
   todo:any = { title : '', status_id: 1};
-  editTodo:any = {id:'',title:'',status_id:'' };
+  editTodo:any;
   editFrm = false;
   // events:IEvent[];
   @Output() eventClicked = new EventEmitter<Event>();

@@ -50,10 +50,11 @@ export class TodoItemsComponent implements OnInit {
  
 
   edit(item) {
+    let todoItem = item
     // this.events = item;
-    item.type = "edit";
+    todoItem.type = "edit";
     // console.log(this.events)
-    this.eventClicked.emit(item);
+    this.eventClicked.emit(todoItem);
   }
   delete(item) {
     // console.log(item);
