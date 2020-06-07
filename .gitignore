@@ -23,3 +23,4 @@ Homestead.json
 .phpunit.result.cache
 angular/dist
 # End of https://www.gitignore.io/api/laravel
+config/database.php
