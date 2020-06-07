@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: "http://todo.test/api/"
+  api: "http://still-bayou-33404.herokuapp.com/api/"
 };
 
 /*
