@@ -24,3 +24,5 @@ Homestead.json
 angular/dist
 # End of https://www.gitignore.io/api/laravel
 config/database.php
+angular/src/environments/environment.prod.ts
+angular/src/environments/environment.ts
